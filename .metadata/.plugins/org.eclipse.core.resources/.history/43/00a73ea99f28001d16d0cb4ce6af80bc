@@ -1,0 +1,33 @@
+package pom;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Form {
+    @FindBy (xpath = "(//input[@id='userName'])[1]") private WebElement fullName;
+	@FindBy (xpath = "(//input[@id='userEmail'])[1]") private WebElement email;
+	@FindBy (xpath = "//textarea[@id='currentAddress']") private WebElement currentAddress;
+	@FindBy (xpath = "//textarea[@id='permanentAddress']") private WebElement permenantAddress;
+	
+	public Form(WebDriver driver) 
+	{
+		PageFactory.initElements(driver, this);
+	}
+	
+	public void enterFullName(String name) {
+		fullName.sendKeys(name);
+	}
+	public void enterEmail(String mail) {
+		email.sendKeys(mail);
+	}
+	public void enterCurrentAddress(String caddress) {
+		currentAddress.sendKeys(caddress);
+	}
+	public void enterPermenantAddress(String paddress) {
+		permenantAddress.sendKeys(paddress);
+	}
+	
+
+}

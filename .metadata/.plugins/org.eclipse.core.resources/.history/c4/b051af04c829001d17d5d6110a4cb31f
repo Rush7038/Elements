@@ -1,0 +1,230 @@
+package pom;
+
+
+import java.time.Duration;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Practice {
+	
+	@FindBy (xpath = "(//span[@class='text'])[1]") private WebElement textBox;
+	@FindBy (xpath = "(//input[@id='userName'])[1]") private WebElement fullName;
+	@FindBy (xpath = "(//input[@id='userEmail'])[1]") private WebElement email;
+	@FindBy (xpath = "//textarea[@id='currentAddress']") private WebElement currentAddress;
+	@FindBy (xpath = "//textarea[@id='permanentAddress']") private WebElement permenantAddress;
+	@FindBy (xpath = "//button[@id='submit']") private WebElement submit;
+	
+	@FindBy (xpath = "//span[text()='Check Box']") private WebElement checkBox;
+	@FindBy (xpath = "//span[@class='rct-checkbox']") private WebElement home;
+	@FindBy (xpath = "//button[@title='Expand all']") private WebElement expandAll;
+	@FindBy (xpath = "//button[@title='Collapse all']") private WebElement collapseAll;
+	
+	@FindBy (xpath = "//span[text()='Radio Button']") private WebElement radioButton;
+	@FindBy (xpath = "//label[@for='yesRadio']") private WebElement yesRadioButton;
+	@FindBy (xpath = "//label[@for='impressiveRadio']") private WebElement impressiveRadioButton;
+	
+	@FindBy (xpath = " //span[text()='Web Tables']") private WebElement webTable;
+	@FindBy (xpath = "//button[@id='addNewRecordButton']") private WebElement add;
+	@FindBy (xpath = "//input[@id=\'firstName\']") private WebElement firstName;
+	@FindBy (xpath = "//input[@id='lastName']") private WebElement lastName;
+	@FindBy (xpath = "//input[@id=\'userEmail\']") private WebElement mail;
+	@FindBy (xpath = "//input[@id=\'age\']") private WebElement age;
+	@FindBy (xpath = "//input[@id=\'salary\']") private WebElement salary;
+	@FindBy (xpath = "//input[@id=\'department\']") private WebElement department;
+	@FindBy (xpath = "//button[@id='submit']") private WebElement submit1;
+	@FindBy (xpath = "//input[@id=\'searchBox\']") private WebElement search;
+	
+	@FindBy (xpath = "(//ul//li[5]//span)[1]") private WebElement buttons;
+	@FindBy (xpath = "//button[@id='doubleClickBtn']") private WebElement doubleClick;
+	@FindBy (xpath = "//button[@id='rightClickBtn']") private WebElement rightClick;
+	@FindBy (xpath = "(//button[@type='button'])[4]") private WebElement dynamicClick ;
+	
+	@FindBy (xpath = "//span[text()='Links']") private WebElement links;
+	@FindBy (xpath = "//a[@id='simpleLink']") private WebElement simpleLink;
+	@FindBy (xpath = "//a[@id='dynamicLink']") private WebElement dynamicLink;
+	
+	@FindBy (xpath = "//span[text()='Broken Links - Images']") private WebElement brokenLink; 
+	@FindBy (xpath = "//a[text()='Click Here for Valid Link']") private WebElement validLink;
+	@FindBy (xpath = "//a[text()='Click Here for Broken Link']") private WebElement invalidLink;
+	
+	@FindBy (xpath = "//span[text()='Upload and Download']") private WebElement upload;
+	@FindBy (xpath = "//a[@id='downloadButton']") private WebElement downloadButton;
+	@FindBy (xpath = "//input[@id='uploadFile']") private WebElement uploadButton;
+	
+	@FindBy (xpath = "//span[text()='Dynamic Properties']") private WebElement dynamicProperties;
+	
+	public Practice(WebDriver driver)                   
+	{                                                    
+		PageFactory.initElements(driver, this);                
+	}                                                                
+	
+	public void clickOnTextBox() {                          
+		textBox.click();                                            
+	}
+
+	public void enterFullName(String name) {
+		fullName.sendKeys(name);
+	}
+	public void enterEmail(String mail) {
+		email.sendKeys(mail);
+	}
+	public void enterCurrentAddress(String caddress) {
+		currentAddress.sendKeys(caddress);
+	}
+	public void enterPermenantAddress(String paddress) {
+		permenantAddress.sendKeys(paddress);
+	}
+	public void clickOnSubmit(WebDriver driver) throws InterruptedException {
+	   ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)", submit);
+	   submit.click();
+      
+	}
+	
+	public void clickOnCheckBox() {
+		checkBox.click();
+	}
+	
+	public void clickOnExpandAll() {
+		expandAll.click();
+	}
+	
+	public void clickOnCollapseAll() {
+		collapseAll.click();
+	}
+	
+	public void clickOnHome() {
+		home.click();
+	}
+	
+	public void clickOnRadioButton() {
+		radioButton.click();
+	}
+	public void clickOnYesRadio() {
+		yesRadioButton.click();
+	}
+	
+    public void clickOnImpressiveRadioButton() {
+    	impressiveRadioButton.click();
+    }
+	
+    public void clickOnWebTable() {
+    	webTable.click();
+    }
+    
+    public void clickOnAdd() {
+    	add.click();
+    }
+    
+    public void enterFirstName(String fname) {
+    	firstName.sendKeys(fname);
+    }
+    
+    public void enterLastName(String lname) {
+    	lastName.sendKeys(lname);
+    }
+    
+    public void enterMailId(String mailId) {
+    	mail.sendKeys(mailId);
+    }
+    
+    public void enterAge(String no) {
+    	age.sendKeys(no);
+    }
+    
+    public void enterSalary(String sal) {
+    	salary.sendKeys(sal);
+    }
+    
+    public void enterDepartment(String depart) {
+    	department.sendKeys(depart);
+    }
+    
+    public void clickONSubmitButton() {
+    	submit1.click();
+    }
+    
+    public void enterSearchBox(String sear, WebDriver driver) {
+    	((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)", search);
+   	    search.sendKeys(sear);
+    }
+    
+    public void clickOnButtons(WebDriver driver) {
+    	((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)", buttons);
+    	buttons.click();
+    }
+    
+    public void clickOnDoubleClick(WebDriver driver) {
+    
+    	Actions act = new Actions(driver);
+    	act.doubleClick(doubleClick).perform();
+    }
+    
+    public void clickOnRightClick(WebDriver driver) {	
+    	Actions act = new Actions(driver);
+    	act.contextClick(rightClick).perform();
+    }
+    
+    public void clickOnDynamicClick(WebDriver driver) {
+    	Actions act = new Actions(driver);
+    	act.click(dynamicClick).perform();
+    }
+    
+    public void clickOnLinks(WebDriver driver) {
+    	((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)", links);
+    	links.click();
+    }
+    
+    public void clickOnSimpleLink() {
+		simpleLink.click();
+
+	}
+	
+	public void clickOnDynamicLink() {
+		dynamicLink.click();
+		
+	}
+    
+    public void clickOnBrokenLink(WebDriver driver) {
+    	((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)", brokenLink);
+    	brokenLink.click();
+    }
+    
+    public void clickOnValidLink(WebDriver driver) {
+		validLink.click();
+		driver.navigate().back();
+		
+	}
+    
+    public void clickOnInvalidLink() {
+		invalidLink.click();
+		
+		
+    }
+    
+    public void clickOnUpload(WebDriver driver) {
+    	((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)", upload);
+    	upload.click();
+    	
+    }
+    public void clickOnDownloadButton() {
+		downloadButton.click();
+		
+	}
+    
+    public void clickOnUploadButton() {
+	    uploadButton.click();
+	
+    }
+    
+    public void clickOnDynamicProperties(WebDriver driver) {
+    	((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)", dynamicProperties);
+        dynamicProperties.click();
+    }
+
+
+}
